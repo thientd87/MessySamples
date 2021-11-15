@@ -1,0 +1,15 @@
+/Volumes/Data/Projects/MessySamples/bin/Debug/net5.0/MessySamples.deps.json
+/Volumes/Data/Projects/MessySamples/bin/Debug/net5.0/MessySamples.runtimeconfig.json
+/Volumes/Data/Projects/MessySamples/bin/Debug/net5.0/MessySamples.runtimeconfig.dev.json
+/Volumes/Data/Projects/MessySamples/bin/Debug/net5.0/MessySamples.dll
+/Volumes/Data/Projects/MessySamples/bin/Debug/net5.0/ref/MessySamples.dll
+/Volumes/Data/Projects/MessySamples/bin/Debug/net5.0/MessySamples.pdb
+/Volumes/Data/Projects/MessySamples/obj/Debug/net5.0/MessySamples.csproj.AssemblyReference.cache
+/Volumes/Data/Projects/MessySamples/obj/Debug/net5.0/MessySamples.GeneratedMSBuildEditorConfig.editorconfig
+/Volumes/Data/Projects/MessySamples/obj/Debug/net5.0/MessySamples.AssemblyInfoInputs.cache
+/Volumes/Data/Projects/MessySamples/obj/Debug/net5.0/MessySamples.AssemblyInfo.cs
+/Volumes/Data/Projects/MessySamples/obj/Debug/net5.0/MessySamples.csproj.CoreCompileInputs.cache
+/Volumes/Data/Projects/MessySamples/obj/Debug/net5.0/MessySamples.dll
+/Volumes/Data/Projects/MessySamples/obj/Debug/net5.0/ref/MessySamples.dll
+/Volumes/Data/Projects/MessySamples/obj/Debug/net5.0/MessySamples.pdb
+/Volumes/Data/Projects/MessySamples/obj/Debug/net5.0/MessySamples.genruntimeconfig.cache
