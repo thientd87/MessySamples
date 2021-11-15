@@ -1,5 +1,6 @@
 ﻿using System;
 using MessyExample.DelegatesSamples;
+using MessyExample.DesignPatterns.Creation.Builder;
 
 namespace MessyExample
 {
@@ -14,6 +15,9 @@ namespace MessyExample
                 {
                     case 1:
                         DelegateSampleMethods();
+                        break;
+                    case 2:
+                        DesignPatternSamples();
                         break;
                     default:
                         Console.WriteLine("Wrong choosen! Choice again.");
@@ -30,6 +34,11 @@ namespace MessyExample
             Console.WriteLine("2. Design Pattern samples");
             Console.Write("Your choosen:");
             return Console.ReadLine();
+        }
+
+        private static void DesignPatternSamples()
+        {
+            MyFunctionBuilderSample.DoSomething();
         }
 
         private static void DelegateSampleMethods()

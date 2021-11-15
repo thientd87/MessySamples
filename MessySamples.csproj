@@ -6,4 +6,8 @@
     <RootNamespace>MessyExample</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="DesignPatterns\Creation" />
+  </ItemGroup>
+
 </Project>
