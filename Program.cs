@@ -39,6 +39,8 @@ namespace MessyExample
         private static void DesignPatternSamples()
         {
             MyFunctionBuilderSample.DoSomething();
+            MyFluentBuilderInheritanceWithRecursiveGenericsSample.DoSomething();
+            MyFacadeBuilderSample.DoSomething();
         }
 
         private static void DelegateSampleMethods()
