@@ -41,7 +41,6 @@ namespace MessyExample.DesignPatterns.Creation.Builder
             var personBuilder = new FunctionalPersonBuilder();
             var person = personBuilder.Called("Thien Trinh").WorkAsA("Developer").Build();
             Console.WriteLine(person.ToString());
-            
             ConsoleHelper.CreateFooter();
         }
     }

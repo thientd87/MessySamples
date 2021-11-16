@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Threading.Tasks;
 using MessyExample.DelegatesSamples;
 using MessyExample.DesignPatterns.Creation.Builder;
+using MessyExample.DesignPatterns.Creation.Factory;
 
 namespace MessyExample
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             Console.WriteLine("Hello World! This is My C# Samples");
             var userSelection = BuildMenu();
@@ -17,7 +19,7 @@ namespace MessyExample
                         DelegateSampleMethods();
                         break;
                     case 2:
-                        DesignPatternSamples();
+                        await DesignPatternSamples();
                         break;
                     default:
                         Console.WriteLine("Wrong choosen! Choice again.");
@@ -36,11 +38,17 @@ namespace MessyExample
             return Console.ReadLine();
         }
 
-        private static void DesignPatternSamples()
+        private static async Task DesignPatternSamples()
         {
+            //1. Creation - Builder
             MyFunctionBuilderSample.DoSomething();
             MyFluentBuilderInheritanceWithRecursiveGenericsSample.DoSomething();
             MyFacadeBuilderSample.DoSomething();
+            
+            //2.Creation - Factory
+            MyFactoryMethodSample.DoSomething();
+            await  MyAsynchronousFactorySample.DoSomething();
+            
         }
 
         private static void DelegateSampleMethods()
