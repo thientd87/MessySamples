@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MessyExample.DelegatesSamples;
 using MessyExample.DesignPatterns.Creation.Builder;
 using MessyExample.DesignPatterns.Creation.Factory;
+using MessyExample.DesignPatterns.Creation.Prototype;
 
 namespace MessyExample
 {
@@ -49,6 +50,9 @@ namespace MessyExample
             MyFactoryMethodSample.DoSomething();
             await  MyAsynchronousFactorySample.DoSomething();
             MyAbstractFactorySample.DoSomething();
+            
+            //3. Creation - Prototype
+            MyPrototypeSample.DoSomething();
             
         }
 
