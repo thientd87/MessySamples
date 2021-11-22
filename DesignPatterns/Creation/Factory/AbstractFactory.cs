@@ -13,7 +13,7 @@ namespace MessyExample.DesignPatterns.Creation.Factory
     {
         public void Consume()
         {
-            Console.WriteLine("This is a cup of Hot Tea.");
+            Console.WriteLine(value: "This is a cup of Hot Tea.");
         }
     }
 
@@ -21,7 +21,7 @@ namespace MessyExample.DesignPatterns.Creation.Factory
     {
         public void Consume()
         {
-            Console.WriteLine("This is a cup of Coffee.");
+            Console.WriteLine(value: "This is a cup of Coffee.");
         }
     }
 
@@ -34,7 +34,7 @@ namespace MessyExample.DesignPatterns.Creation.Factory
     {
         public IHotDrink Prepare(int amount)
         {
-            Console.WriteLine($"Preparing {amount} cup of tea");
+            Console.WriteLine(value: $"Preparing {amount} cup of tea");
             return new Tea();
         }
     }
@@ -43,7 +43,7 @@ namespace MessyExample.DesignPatterns.Creation.Factory
     {
         public IHotDrink Prepare(int amount)
         {
-            Console.WriteLine($"Preparing {amount} cup of tea");
+            Console.WriteLine(value: $"Preparing {amount} cup of tea");
             return new Coffee();
         }
     }
@@ -78,17 +78,17 @@ namespace MessyExample.DesignPatterns.Creation.Factory
         {
             foreach (var type in typeof(VendingMachine).Assembly.GetTypes())
             {
-                if (typeof(IHotDrinkFactory).IsAssignableFrom(type) && !type.IsInterface)
+                if (typeof(IHotDrinkFactory).IsAssignableFrom(c: type) && !type.IsInterface)
                 {
-                    _factories.Add(type.Name.Replace("Factory",string.Empty),(IHotDrinkFactory)Activator.CreateInstance(type));
+                    _factories.Add(key: type.Name.Replace(oldValue: "Factory",newValue: string.Empty),value: (IHotDrinkFactory)Activator.CreateInstance(type: type));
                 }
             }
         }
         public IHotDrink MakeDrink(string drink,int amount)
         {
-            if (_factories.Any() && _factories.ContainsKey(drink))
+            if (_factories.Any() && _factories.ContainsKey(key: drink))
             {
-                return _factories[drink].Prepare(amount);
+                return _factories[key: drink].Prepare(amount: amount);
             }
 
             return null;
@@ -99,9 +99,9 @@ namespace MessyExample.DesignPatterns.Creation.Factory
     {
         public static void DoSomething()
         {
-            ConsoleHelper.CreateHeader("Design Pattern - Creation - Factory - Abstract Factory");
+            ConsoleHelper.CreateHeader(HeaderName: "Design Pattern - Creation - Factory - Abstract Factory");
             VendingMachine vendingMachine = new VendingMachine();
-            var drink1 = vendingMachine.MakeDrink("Tea",1);
+            var drink1 = vendingMachine.MakeDrink(drink: "Tea",amount: 1);
             drink1.Consume();
             ConsoleHelper.CreateFooter();
         }

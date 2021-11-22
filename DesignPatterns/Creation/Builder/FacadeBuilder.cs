@@ -20,9 +20,9 @@ namespace MessyExample.DesignPatterns.Creation.Builder
     {
         protected FacadePerson person = new FacadePerson();
 
-        public FacadePersonInfoBuilder Info => new FacadePersonInfoBuilder(person);
-        public FacadePersonJobBuilder Work => new FacadePersonJobBuilder(person);
-        public FacadePersonAddressBuilder Address => new FacadePersonAddressBuilder(person);
+        public FacadePersonInfoBuilder Info => new FacadePersonInfoBuilder(facadePerson: person);
+        public FacadePersonJobBuilder Work => new FacadePersonJobBuilder(facadePerson: person);
+        public FacadePersonAddressBuilder Address => new FacadePersonAddressBuilder(facadePerson: person);
 
         public FacadePerson Build()
         {
@@ -93,20 +93,20 @@ namespace MessyExample.DesignPatterns.Creation.Builder
         public static void DoSomething()
         {
             
-            ConsoleHelper.CreateHeader("Design Pattern  - Creation - Builder : Facade builder");
+            ConsoleHelper.CreateHeader(HeaderName: "Design Pattern  - Creation - Builder : Facade builder");
             var personBuilder = new FacadePersonBuilder();
             var person = personBuilder
                 .Address
-                    .WithAddress("HCM")
-                    .WithPostalCode("700000")
+                    .WithAddress(address: "HCM")
+                    .WithPostalCode(postalCode: "700000")
                 .Work
-                    .WorkAt("Happy Coding DotNet")
-                    .WorkAs("Developer")
-                    .AnnualIncome("10k")
-                .Info.Called("Thien Trinh")
+                    .WorkAt(companyName: "Happy Coding DotNet")
+                    .WorkAs(position: "Developer")
+                    .AnnualIncome(salary: "10k")
+                .Info.Called(name: "Thien Trinh")
                 .Build();
             
-            Console.WriteLine(person.ToString());
+            Console.WriteLine(value: person.ToString());
             
             ConsoleHelper.CreateFooter();
         }

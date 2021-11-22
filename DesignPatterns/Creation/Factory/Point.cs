@@ -27,13 +27,13 @@ namespace MessyExample.DesignPatterns.Creation.Factory
         protected Point(double x, double y, CoordinationSystem system = CoordinationSystem.Cartesian)
         {
             
-            var point = new Point(x, y);
+            var point = new Point(x: x, y: y);
             switch (system)
             {
                 case CoordinationSystem.Cartesian:
                     break;
                 case CoordinationSystem.Polar:
-                    point =  new Point(Math.Cos(x), Math.Sin(y));
+                    point =  new Point(x: Math.Cos(d: x), y: Math.Sin(a: y));
                     break;
             }
         }

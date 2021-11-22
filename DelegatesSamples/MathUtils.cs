@@ -35,26 +35,26 @@ namespace MessyExample.DelegatesSamples
 
         public static void DoSomething()
         {
-            ConsoleHelper.CreateHeader("Delegate Int-Int-To-Int sample");
+            ConsoleHelper.CreateHeader(HeaderName: "Delegate Int-Int-To-Int sample");
            
             
             IntIntToInt intIntToInt = new IntIntToInt(MathUtils.Sum);
-            int value1 = intIntToInt(10, 20);
-            Console.WriteLine($"Sum Value = {value1}");
+            int value1 = intIntToInt(a: 10, b: 20);
+            Console.WriteLine(value: $"Sum Value = {value1}");
 
             intIntToInt = new IntIntToInt(MathUtils.Minus);
-            int value2 = intIntToInt(10, 20);
-            Console.WriteLine($"Minus Value = {value2}");
+            int value2 = intIntToInt(a: 10, b: 20);
+            Console.WriteLine(value: $"Minus Value = {value2}");
             
             intIntToInt = new IntIntToInt(MathUtils.Multiple);
-            int value3 = intIntToInt(10, 20);
-            Console.WriteLine($"Minus Value = {value3}");
+            int value3 = intIntToInt(a: 10, b: 20);
+            Console.WriteLine(value: $"Minus Value = {value3}");
 
             // non static method
             MathUtils math = new MathUtils();
             intIntToInt = new IntIntToInt(math.Divide);
-            int value4 = intIntToInt(20, 10);
-            Console.WriteLine($"Divide Value = {value4}");
+            int value4 = intIntToInt(a: 20, b: 10);
+            Console.WriteLine(value: $"Divide Value = {value4}");
             
            ConsoleHelper.CreateFooter();
         }

@@ -7,16 +7,16 @@ namespace MessyExample
         public static void CreateHeader(string HeaderName)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("-------------------------------");
-            Console.WriteLine(HeaderName);
-            Console.WriteLine("++++++++++++++++++++++++++++");
+            Console.WriteLine(value: "-------------------------------");
+            Console.WriteLine(value: HeaderName);
+            Console.WriteLine(value: "++++++++++++++++++++++++++++");
             Console.ResetColor();
         }
 
         public static void CreateFooter()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("-------------------------------");
+            Console.WriteLine(value: "-------------------------------");
             Console.ResetColor();
         }
     }

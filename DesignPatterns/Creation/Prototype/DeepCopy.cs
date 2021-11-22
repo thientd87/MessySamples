@@ -15,9 +15,9 @@ namespace MessyExample.DesignPatterns.Creation.Prototype
         {
             MemoryStream stream = new MemoryStream();
             BinaryFormatter formatter = new BinaryFormatter();
-            formatter.Serialize(stream, self);
-            stream.Seek(0, SeekOrigin.Begin);
-            object copy = formatter.Deserialize(stream);
+            formatter.Serialize(serializationStream: stream, graph: self);
+            stream.Seek(offset: 0, loc: SeekOrigin.Begin);
+            object copy = formatter.Deserialize(serializationStream: stream);
             stream.Close();
             return (T)copy;
         }
@@ -27,10 +27,10 @@ namespace MessyExample.DesignPatterns.Creation.Prototype
         {
             using (var ms = new MemoryStream())
             {
-                var s = new XmlSerializer(typeof(T));
-                s.Serialize(ms, self);
+                var s = new XmlSerializer(type: typeof(T));
+                s.Serialize(stream: ms, o: self);
                 ms.Position = 0;
-                return (T)s.Deserialize(ms);
+                return (T)s.Deserialize(stream: ms);
             }
         }
 
@@ -38,12 +38,12 @@ namespace MessyExample.DesignPatterns.Creation.Prototype
         public static T DeepCopyJson<T>(this T self)
         {
             // Don't serialize a null object, simply return the default for that object
-            if (Object.ReferenceEquals(self, null))
+            if (Object.ReferenceEquals(objA: self, objB: null))
             {
                 return default(T);
             }
 
-            return JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(self));
+            return JsonConvert.DeserializeObject<T>(value: JsonConvert.SerializeObject(value: self));
         }
     }
 
@@ -99,18 +99,18 @@ namespace MessyExample.DesignPatterns.Creation.Prototype
     {
         public static void DoSomething()
         {
-            ConsoleHelper.CreateHeader("Design Pattern - Creation - Prototype - Deep Copy extention");
+            ConsoleHelper.CreateHeader(HeaderName: "Design Pattern - Creation - Prototype - Deep Copy extention");
             
-            var john = new Employee("John", new Address("123 London Road", "London", "UK"));
+            var john = new Employee(name: "John", address: new Address(streetAddress: "123 London Road", city: "London", country: "UK"));
             //var chris = john;
             var chris = john;
             chris.Name = "Chris";
-            Console.WriteLine(john); // oops, john is called chris
-            Console.WriteLine(chris);
+            Console.WriteLine(value: john); // oops, john is called chris
+            Console.WriteLine(value: chris);
 
             var jane = john.DeepCopy();
             jane.Name = "jane";
-            Console.WriteLine(jane);
+            Console.WriteLine(value: jane);
 
             var mr8X = john.DeepCopyJson();
             mr8X.Name = "mr8x";

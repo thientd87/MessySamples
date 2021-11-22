@@ -58,9 +58,9 @@ namespace MessyExample.DesignPatterns.Creation.Builder
     {
         public static void DoSomething()
         {
-            ConsoleHelper.CreateHeader("Design Pattern  - Creation - Builder : Fluent builder inheritance with recursive generics");
-            var person = FluentPerson.New.Called("Thien Trinh").WorkAsA("Developer").At("Happy Coding DotNet").Build();
-            Console.WriteLine(person);
+            ConsoleHelper.CreateHeader(HeaderName: "Design Pattern  - Creation - Builder : Fluent builder inheritance with recursive generics");
+            var person = FluentPerson.New.Called(name: "Thien Trinh").WorkAsA(position: "Developer").At(company: "Happy Coding DotNet").Build();
+            Console.WriteLine(value: person);
             ConsoleHelper.CreateFooter();
         }
     }

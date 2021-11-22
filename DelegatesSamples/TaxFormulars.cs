@@ -41,22 +41,22 @@ namespace MessyExample.DelegatesSamples
         public static void DoSomething()
         {
          
-            ConsoleHelper.CreateHeader("Return as Method(Delegate) sample");
+            ConsoleHelper.CreateHeader(HeaderName: "Return as Method(Delegate) sample");
 
             float iphonePrice = 999;
 
-            TaxFormulars.TaxFormular taxFormular = TaxFormulars.GetTaxFormularByCountry("vn");
+            TaxFormulars.TaxFormular taxFormular = TaxFormulars.GetTaxFormularByCountry(countryCode: "vn");
 
-            var iphoneSalePrice = iphonePrice + taxFormular(iphonePrice);
-            Console.WriteLine($"Iphone Price at VN is {iphoneSalePrice}");
+            var iphoneSalePrice = iphonePrice + taxFormular(price: iphonePrice);
+            Console.WriteLine(value: $"Iphone Price at VN is {iphoneSalePrice}");
 
-            taxFormular = TaxFormulars.GetTaxFormularByCountry("usa");
-            iphoneSalePrice = iphonePrice + taxFormular(iphonePrice);
-            Console.WriteLine($"Iphone Price at USA is {iphoneSalePrice}");
+            taxFormular = TaxFormulars.GetTaxFormularByCountry(countryCode: "usa");
+            iphoneSalePrice = iphonePrice + taxFormular(price: iphonePrice);
+            Console.WriteLine(value: $"Iphone Price at USA is {iphoneSalePrice}");
             
-            taxFormular = TaxFormulars.GetTaxFormularByCountry("eu");
-            iphoneSalePrice = iphonePrice + taxFormular(iphonePrice);
-            Console.WriteLine($"Iphone Price at EU is {iphoneSalePrice}");
+            taxFormular = TaxFormulars.GetTaxFormularByCountry(countryCode: "eu");
+            iphoneSalePrice = iphonePrice + taxFormular(price: iphonePrice);
+            Console.WriteLine(value: $"Iphone Price at EU is {iphoneSalePrice}");
             
             ConsoleHelper.CreateFooter();
         }

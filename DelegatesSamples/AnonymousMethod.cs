@@ -37,17 +37,17 @@ namespace MessyExample.DelegatesSamples
     {
         public static void DoSomething()
         {
-            ConsoleHelper.CreateHeader("Anonymous Delegate sample");
+            ConsoleHelper.CreateHeader(HeaderName: "Anonymous Delegate sample");
 
             float mysalary = 2000;
 
-            AnonymousMethod.SalaryTaxFormula taxFormular = AnonymousMethod.GetSalaryTaxFormulaByCountry("vn");
-            var salaryAfterTax = mysalary - taxFormular(mysalary);
-            Console.WriteLine($"My salary after tax at VN is {salaryAfterTax}");
+            AnonymousMethod.SalaryTaxFormula taxFormular = AnonymousMethod.GetSalaryTaxFormulaByCountry(countryCode: "vn");
+            var salaryAfterTax = mysalary - taxFormular(salary: mysalary);
+            Console.WriteLine(value: $"My salary after tax at VN is {salaryAfterTax}");
 
-            taxFormular = AnonymousMethod.GetSalaryTaxFormulaByCountry("usa");
-            salaryAfterTax = mysalary - taxFormular(mysalary);
-            Console.WriteLine($"My salary after tax at VN is {salaryAfterTax}");
+            taxFormular = AnonymousMethod.GetSalaryTaxFormulaByCountry(countryCode: "usa");
+            salaryAfterTax = mysalary - taxFormular(salary: mysalary);
+            Console.WriteLine(value: $"My salary after tax at VN is {salaryAfterTax}");
 
 
             ConsoleHelper.CreateFooter();

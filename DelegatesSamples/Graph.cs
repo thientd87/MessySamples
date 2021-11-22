@@ -23,30 +23,30 @@ namespace MessyExample.DelegatesSamples
             // và phương thức như các object khác. Thực tế tất cả kiểu delegate đều
             // kế thừa thừa lớp System.Delegate. Ở đây đang dùng thuộc tính Method 
             // của lớp này.
-            Console.WriteLine($"Drawing the function graph: {function.Method}");
+            Console.WriteLine(value: $"Drawing the function graph: {function.Method}");
             foreach (var x in range)
             {
                 // mặc dù function là một object nhưng có thể "gọi" như gọi hàm.
                 // đây là sự khác biệt giữa object thuộc kiểu delegate với object
                 // tạo ra từ class bình thường
-                var y = function(x);
+                var y = function(x: x);
                 // ngoài cách gọi này còn còn thể dùng cấu trúc dưới đây
-                 var z = function.Invoke(x);
+                 var z = function.Invoke(x: x);
                 // hoặc
                 // var y = function?.Invoke(x);
-                Console.Write($"{y:f3}-{z:f3}   ");
+                Console.Write(value: $"{y:f3}-{z:f3}   ");
             }
             Console.WriteLine();
-            Console.WriteLine("-----------------");
+            Console.WriteLine(value: "-----------------");
         }
     }
     
     public class Mathematics
     {
         // đây là một instance method
-        public double Cos(double x) => Math.Cos(x);
+        public double Cos(double x) => Math.Cos(d: x);
         // đây là một static method
-        public static double Tan(double x) => Math.Tan(x);
+        public static double Tan(double x) => Math.Tan(a: x);
         
     }
 
@@ -54,39 +54,39 @@ namespace MessyExample.DelegatesSamples
     {
         private static double Sin(double x)
         {
-            return Math.Sin(x);
+            return Math.Sin(a: x);
         }
         
         public static void DoSomething()
         {
-            ConsoleHelper.CreateHeader("Method parameter is a Delegate");
+            ConsoleHelper.CreateHeader(HeaderName: "Method parameter is a Delegate");
             var graph = new GraphRender();
             
             // khởi tạo vùng giá trị của x
             double[] range = new double[] { 1.0, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0 };
             
-            graph.Render(Sin, range);
+            graph.Render(function: Sin, range: range);
         
-            graph.Render(Mathematics.Tan, range);
+            graph.Render(function: Mathematics.Tan, range: range);
             
             Mathematics math = new Mathematics();
-            graph.Render(math.Cos, range);
+            graph.Render(function: math.Cos, range: range);
             
             // tạo một hàm vô danh tuân theo mô tả (double) -> double
             // và gán nó cho biến function
             // biến function là biến thuộc kiểu delegate MathFunction
             MathFunction function = delegate (double x) { return x *= 2; };
             // truyền biến function cho hàm Render
-            graph.Render(function, range);
+            graph.Render(function: function, range: range);
 
             // khai báo và truyền hàm vô danh trực tiếp tại vị trí tham số
-            graph.Render(delegate (double x) { return x++; }, range);
+            graph.Render(function: delegate (double x) { return x++; }, range: range);
             
             // khai báo và truyền hàm lambda trực tiếp tại vị trí tham số
-            graph.Render((double x) => { return x *= 10; }, range);
+            graph.Render(function: (double x) => { return x *= 10; }, range: range);
             
             // truyền một hàm lambda rút gọn làm tham số
-            graph.Render(x => x / 10, range);
+            graph.Render(function: x => x / 10, range: range);
 
 
             ConsoleHelper.CreateFooter();

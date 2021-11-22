@@ -14,20 +14,20 @@ namespace MessyExample.DesignPatterns.Creation.Builder
 
         public FunctionalPersonBuilder Called(string name)
         {
-            Actions.Add(p => { p.Name = name;});
+            Actions.Add(item: p => { p.Name = name;});
             return this;
         }
 
         public FunctionalPersonBuilder WorkAsA(string position)
         {
-            Actions.Add(p => { p.Position = position;});
+            Actions.Add(item: p => { p.Position = position;});
             return this;
         }
 
         public FunctionalPerson Build()
         {
             var person = new FunctionalPerson();
-            Actions.ForEach( a => a(person));
+            Actions.ForEach( action: a => a(obj: person));
             return person;
         }
     }
@@ -36,11 +36,11 @@ namespace MessyExample.DesignPatterns.Creation.Builder
     {
         public static void  DoSomething()
         {
-             ConsoleHelper.CreateHeader("Design Pattern  - Creation - Builder : Function builder");
+             ConsoleHelper.CreateHeader(HeaderName: "Design Pattern  - Creation - Builder : Function builder");
             
             var personBuilder = new FunctionalPersonBuilder();
-            var person = personBuilder.Called("Thien Trinh").WorkAsA("Developer").Build();
-            Console.WriteLine(person.ToString());
+            var person = personBuilder.Called(name: "Thien Trinh").WorkAsA(position: "Developer").Build();
+            Console.WriteLine(value: person.ToString());
             ConsoleHelper.CreateFooter();
         }
     }

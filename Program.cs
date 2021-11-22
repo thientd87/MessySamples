@@ -12,10 +12,10 @@ namespace MessyExample
     {
         static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello World! This is My C# Samples");
+            Console.WriteLine(value: "Hello World! This is My C# Samples");
             var userSelection = BuildMenu();
             if (userSelection != null)
-                switch (int.Parse(userSelection))
+                switch (int.Parse(s: userSelection))
                 {
                     case 1:
                         DelegateSampleMethods();
@@ -24,7 +24,7 @@ namespace MessyExample
                         await DesignPatternSamples();
                         break;
                     default:
-                        Console.WriteLine("Wrong choosen! Choice again.");
+                        Console.WriteLine(value: "Wrong choosen! Choice again.");
                         BuildMenu();
                         break;
                 }
@@ -33,10 +33,10 @@ namespace MessyExample
 
         private static string BuildMenu()
         {
-            Console.WriteLine("Please chose 1:");
-            Console.WriteLine("1. Delegate Samples");
-            Console.WriteLine("2. Design Pattern samples");
-            Console.Write("Your choosen:");
+            Console.WriteLine(value: "Please chose 1:");
+            Console.WriteLine(value: "1. Delegate Samples");
+            Console.WriteLine(value: "2. Design Pattern samples");
+            Console.Write(value: "Your choosen:");
             return Console.ReadLine();
         }
 
@@ -57,7 +57,7 @@ namespace MessyExample
             
             //4.Creation - Singleton
             MySingletonSample.DoSomething();
-            
+            MyMonoStateTest.DoSomething();
         }
 
         private static void DelegateSampleMethods()

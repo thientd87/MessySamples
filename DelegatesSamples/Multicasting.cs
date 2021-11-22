@@ -7,19 +7,19 @@ namespace MessyExample.DelegatesSamples
         // Kiểu hàm: (String) -> ()
         public static void Hello(String name)
         {
-            Console.WriteLine("Hello " + name);
+            Console.WriteLine(value: "Hello " + name);
         }
 
         // Kiểu hàm: (String) -> ()
         public static void Bye(string name)
         {
-            Console.WriteLine("Bye " + name);
+            Console.WriteLine(value: "Bye " + name);
         }
 
         // Kiểu hàm: (String) -> ()
         public static void Hi(string name)
         {
-            Console.WriteLine("Hi " + name);
+            Console.WriteLine(value: "Hi " + name);
         } 
     }
     
@@ -31,7 +31,7 @@ namespace MessyExample.DelegatesSamples
             public static void DoSomething()
             {
                 
-                ConsoleHelper.CreateHeader("Multicasting Delegate sample");
+                ConsoleHelper.CreateHeader(HeaderName: "Multicasting Delegate sample");
 
                 // Tạo các đối tượng Delegate.
                 Greeting hello = Greetings.Hello;
@@ -45,7 +45,7 @@ namespace MessyExample.DelegatesSamples
                 greeting += hi;
 
                 // Thực thi greeting.
-                greeting("Tom");
+                greeting(name: "Tom");
 
                 ConsoleHelper.CreateFooter();
 
