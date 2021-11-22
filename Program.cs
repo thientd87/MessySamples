@@ -4,6 +4,7 @@ using MessyExample.DelegatesSamples;
 using MessyExample.DesignPatterns.Creation.Builder;
 using MessyExample.DesignPatterns.Creation.Factory;
 using MessyExample.DesignPatterns.Creation.Prototype;
+using MessyExample.DesignPatterns.Creation.Singleton;
 
 namespace MessyExample
 {
@@ -53,6 +54,9 @@ namespace MessyExample
             
             //3. Creation - Prototype
             MyPrototypeSample.DoSomething();
+            
+            //4.Creation - Singleton
+            MySingletonSample.DoSomething();
             
         }
 
