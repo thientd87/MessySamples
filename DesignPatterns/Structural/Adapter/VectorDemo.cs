@@ -1,4 +1,5 @@
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using MoreLinq.Extensions;
@@ -20,6 +21,27 @@ namespace MessyExample.DesignPatterns.Structural.Adapter
         {
             return $"{nameof(X)}: {X}, {nameof(Y)}: {Y}";
         }
+
+        protected bool Equals(Point other)
+        {
+            return X == other.X && Y == other.Y;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Point)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (X * 397) ^ Y;
+            }
+        }
     }
 
     public class Line
@@ -31,6 +53,27 @@ namespace MessyExample.DesignPatterns.Structural.Adapter
         {
             this.Start = start;
             this.End = end;
+        }
+
+        protected bool Equals(Line other)
+        {
+            return Start.Equals(other.Start) && End.Equals(other.End);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Line)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (Start.GetHashCode() * 397) ^ End.GetHashCode();
+            }
         }
     }
 
@@ -100,6 +143,8 @@ namespace MessyExample.DesignPatterns.Structural.Adapter
 
         public static void Draw()
         {
+            ConsoleHelper.CreateHeader(HeaderName: "Design Pattern - Structural - Adapter - Simple adapter");
+            
             foreach (var vo in vectorObjects)
             {
                 foreach (var line in vo)
@@ -108,6 +153,8 @@ namespace MessyExample.DesignPatterns.Structural.Adapter
                     adapter.ForEach(DrawPoint);
                 }
             }
+            
+            ConsoleHelper.CreateFooter();
         }
     }
 }

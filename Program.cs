@@ -62,6 +62,7 @@ namespace MessyExample
             
             //5. Structural - Adapter
             MyVectorSample.Draw();
+            MyGenericValueAdapterSample.DoSomething();
         }
 
         private static void DelegateSampleMethods()
