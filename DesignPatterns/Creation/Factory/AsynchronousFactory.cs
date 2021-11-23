@@ -12,7 +12,7 @@ namespace MessyExample.DesignPatterns.Creation.Factory
 
         private async Task<MyPointAsync> InitAsync(double x, double y)
         {
-            await Task.Delay(millisecondsDelay: 2000);
+            await Task.Delay(millisecondsDelay: 1000);
             return new MyPointAsync(x: x,y: y);
         }
 

@@ -5,6 +5,7 @@ using MessyExample.DesignPatterns.Creation.Builder;
 using MessyExample.DesignPatterns.Creation.Factory;
 using MessyExample.DesignPatterns.Creation.Prototype;
 using MessyExample.DesignPatterns.Creation.Singleton;
+using MessyExample.DesignPatterns.Structural.Adapter;
 
 namespace MessyExample
 {
@@ -58,6 +59,9 @@ namespace MessyExample
             //4.Creation - Singleton
             MySingletonSample.DoSomething();
             MyMonoStateTest.DoSomething();
+            
+            //5. Structural - Adapter
+            MyVectorSample.Draw();
         }
 
         private static void DelegateSampleMethods()
